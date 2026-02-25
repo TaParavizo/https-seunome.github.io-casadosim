@@ -1,40 +1,98 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CASA do SIM | Contato</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre em contato com a CASA do SIM em Varginha, MG. Junte-se ao nosso grupo de estudos católico.">
+    <title>CASA do SIM | Contato</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="splash">
-    <div class="gold-light"></div>
-    <img src="casadosimt.png" alt="CASA do SIM">
-</div>
+    <div id="splash" aria-hidden="true">
+        <div class="gold-light"></div>
+        <img src="casadosimt.png" alt="Logo CASA do SIM em destaque">
+    </div>
 
-<div class="logo-topo">
-    <img src="casadosimt.png" alt="CASA do SIM">
-</div>
+    <header class="header">
+        <div class="logo-topo">
+            <img src="casadosimt.png" alt="Logotipo CASA do SIM">
+        </div>
+        
+        <nav aria-label="Navegação Principal">
+            <a href="index.html">Quem Somos</a>
+            <a href="estudos.html">Estudos</a>
+            <a href="contato.html" class="active" aria-current="page">Contato</a>
+        </nav>
+    </header>
 
-<header class="header">
-    <nav>
-        <a href="index.html">Quem Somos</a>
-        <a href="estudos.html">Estudos</a>
-        <a href="contato.html" class="active">Contato</a>
-    </nav>
-</header>
+    <main class="content">
+        <h1>Fale Conosco</h1>
+        <p>Quer participar dos nossos encontros ou tirar alguma dúvida? Sinta-se em casa para nos mandar uma mensagem. Será uma alegria receber você!</p>
 
-<section class="content">
-    <h3>Contato</h3>
-    <p>Email: contato@casadosim.com</p>
-</section>
+        <div class="contato-grid">
+            
+            <section class="info-contato">
+                <h3>Nossos Canais</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li>
+                        <strong>📍 Onde estamos:</strong><br>
+                        Varginha - Minas Gerais
+                    </li>
+                    <br>
+                    <li>
+                        <strong>📱 WhatsApp:</strong><br>
+                        <a href="https://wa.me/5535991640079" target="_blank" rel="noopener noreferrer" style="color: #0d1b2a; text-decoration: none;">
+                            (35) 99164-0079
+                        </a>
+                    </li>
+                    <br>
+                    <li>
+                        <strong>✉️ E-mail:</strong><br>
+                        <a href="mailto:contato@casadosim.com" style="color: #0d1b2a; text-decoration: none;">
+                            contato@casadosim.com
+                        </a>
+                    </li>
+                </ul>
+            </section>
 
-<footer>
-    <img src="casadosimt.png" class="logo-footer">
-    <p>© 2026 CASA do SIM</p>
-</footer>
+            <section class="formulario-contato" style="margin-top: 30px;">
+                <h3>Envie uma Mensagem</h3>
+                <form action="#" method="POST">
+                    <div style="margin-bottom: 15px;">
+                        <label for="nome">Seu Nome:</label><br>
+                        <input type="text" id="nome" name="nome" required style="width: 100%; padding: 8px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label for="mensagem">Mensagem:</label><br>
+                        <textarea id="mensagem" name="mensagem" rows="4" required style="width: 100%; padding: 8px;"></textarea>
+                    </div>
+                    <button type="submit" style="background: #d4af37; color: #fff; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold;">Enviar</button>
+                </form>
+            </section>
 
-<script src="script.js"></script>
+        </div>
+
+        <section class="mapa-localizacao" style="margin-top: 50px;">
+            <h3>Nossa Cidade</h3>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118546.06992925588!2d-45.521873199999996!3d-21.5545229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cb582ba9512ef5%3A0xc3f6089ce2b26053!2sVarginha%2C%20MG!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+                width="100%" 
+                height="300" 
+                style="border:0; border-radius: 8px;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </section>
+
+    </main>
+
+    <footer>
+        <img src="casadosimt.png" alt="Símbolo CASA do SIM" class="logo-footer">
+        <p>&copy; 2026 CASA do SIM</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
