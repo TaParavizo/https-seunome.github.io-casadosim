@@ -1,177 +1,354 @@
-body{
-    margin:0;
-    font-family:'Segoe UI', sans-serif;
-    background:linear-gradient(to bottom, #f4f6f9, #ffffff);
-    color:#0d1b2a;
-    scroll-behavior:smooth;
+/* ==========================================
+   VARIÁVEIS (Facilita a manutenção das cores)
+========================================== */
+:root {
+    --cor-primaria: #0d1b2a; /* Azul escuro */
+    --cor-destaque: #d4af37; /* Dourado */
+    --cor-destaque-hover: #b8962d; /* Dourado escuro para botões */
+    --cor-fundo: #f4f6f9;
+    --cor-texto: #333333;
+    --cor-branco: #ffffff;
+    --sombra-card: 0 8px 25px rgba(0,0,0,0.06);
+    --sombra-card-hover: 0 15px 35px rgba(0,0,0,0.12);
 }
 
-/* SPLASH */
-#splash{
-    position:fixed;
-    width:100%;
-    height:100vh;
-    background:#0d1b2a;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-    z-index:9999;
-    transition:opacity 1s ease, visibility 1s ease;
+/* ==========================================
+   RESET E BASE
+========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-#splash img{
-    width:260px;
-    position:relative;
-    z-index:2;
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(to bottom, var(--cor-fundo), var(--cor-branco));
+    color: var(--cor-texto);
+    scroll-behavior: smooth;
+    line-height: 1.6;
 }
 
-.gold-light{
-    position:absolute;
-    width:200%;
-    height:100%;
-    background:linear-gradient(
+/* ==========================================
+   SPLASH SCREEN
+========================================== */
+#splash {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: var(--cor-primaria);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 9999;
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+#splash img {
+    width: 260px;
+    position: relative;
+    z-index: 2;
+}
+
+.gold-light {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
         120deg,
         transparent 40%,
         rgba(212,175,55,0.4) 50%,
         transparent 60%
     );
-    animation:goldPass 2.5s ease-in-out;
+    animation: goldPass 2.5s ease-in-out;
 }
 
-@keyframes goldPass{
-    from{ transform:translateX(-100%); }
-    to{ transform:translateX(100%); }
+@keyframes goldPass {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
 }
 
-#splash.hide{
-    opacity:0;
-    visibility:hidden;
+#splash.hide {
+    opacity: 0;
+    visibility: hidden;
 }
 
-/* LOGO TOPO */
-.logo-topo{
-    text-align:center;
-    padding:50px 20px 20px;
-    background:white;
+/* ==========================================
+   CABEÇALHO E NAVEGAÇÃO
+========================================== */
+.header {
+    background: var(--cor-branco);
+    text-align: center;
+    padding-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
 }
 
-.logo-topo img{
-    width:180px;
-    opacity:0.95;
+.logo-topo {
+    padding: 40px 20px 20px;
 }
 
-/* HEADER */
-.header{
-    background:white;
-    text-align:center;
-    padding-bottom:20px;
-    position:relative;
+.logo-topo img {
+    width: 180px;
+    opacity: 0.95;
 }
 
-nav a{
-    text-decoration:none;
-    margin:0 25px;
-    color:#0d1b2a;
-    font-weight:500;
-    position:relative;
-    transition:0.3s;
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-nav a::after{
-    content:"";
-    position:absolute;
-    width:0%;
-    height:2px;
-    left:0;
-    bottom:-6px;
-    background:#d4af37;
-    transition:0.3s ease;
+nav a {
+    text-decoration: none;
+    margin: 0 15px;
+    color: var(--cor-primaria);
+    font-weight: 600;
+    font-size: 1.05rem;
+    position: relative;
+    transition: color 0.3s;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -6px;
+    background: var(--cor-destaque);
+    transition: width 0.3s ease;
 }
 
 nav a:hover::after,
-nav a.active::after{
-    width:100%;
+nav a.active::after {
+    width: 100%;
 }
 
 nav a.active,
-nav a:hover{
-    color:#d4af37;
+nav a:hover {
+    color: var(--cor-destaque);
 }
 
-/* CONTENT */
-.content{
-    padding:70px 40px;
-    max-width:1000px;
-    margin:auto;
+/* ==========================================
+   CONTEÚDO PRINCIPAL (MAIN)
+========================================== */
+.content {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+    min-height: 60vh;
 }
 
-.content h3{
-    font-size:28px;
-    margin-bottom:25px;
-    font-weight:600;
-    position:relative;
+.content h1 {
+    font-size: 32px;
+    color: var(--cor-primaria);
+    margin-bottom: 25px;
+    font-weight: 700;
+    position: relative;
 }
 
-.content h3::after{
-    content:"";
-    width:60px;
-    height:3px;
-    background:#d4af37;
-    display:block;
-    margin-top:10px;
+.content h1::after {
+    content: "";
+    width: 60px;
+    height: 4px;
+    background: var(--cor-destaque);
+    display: block;
+    margin-top: 12px;
+    border-radius: 2px;
 }
 
-/* ESTUDOS */
-.modulos{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-    gap:30px;
-    margin-top:40px;
+.content p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #4a5568;
 }
 
-.card-estudo{
-    background:white;
-    padding:30px;
-    border-radius:14px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.06);
-    border-top:4px solid #d4af37;
-    transition:0.4s ease;
-    opacity:0;
-    transform:translateY(20px);
+/* ==========================================
+   ESTUDOS (MÓDULOS E SANFONA)
+========================================== */
+.modulos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
 }
 
-.card-estudo.show{
-    opacity:1;
-    transform:translateY(0);
+.card-estudo {
+    background: var(--cor-branco);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--sombra-card);
+    border-top: 4px solid var(--cor-destaque);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.card-estudo:hover{
-    transform:translateY(-6px);
-    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+.card-estudo:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-card-hover);
 }
 
-.card-estudo h4{
-    margin-top:0;
-    color:#0d1b2a;
+.card-estudo h2 {
+    font-size: 20px;
+    color: var(--cor-primaria);
+    margin-bottom: 15px;
 }
 
-/* FOOTER */
-footer{
-    background:#0d1b2a;
-    color:white;
-    text-align:center;
-    padding:50px 20px;
-    margin-top:80px;
+/* Estilo do botão de expandir o módulo */
+summary.btn-expandir {
+    background: var(--cor-fundo);
+    padding: 12px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--cor-primaria);
+    list-style: none; /* Esconde a seta padrão */
+    transition: background 0.3s ease;
 }
 
-.logo-footer{
-    width:120px;
-    margin-bottom:15px;
-    opacity:0.8;
-    transition:0.4s;
+summary.btn-expandir::-webkit-details-marker {
+    display: none; /* Esconde a seta no Safari/Chrome antigo */
 }
 
-.logo-footer:hover{
-    opacity:1;
+summary.btn-expandir:hover {
+    background: #e2e8f0;
+}
+
+.modulo-conteudo {
+    padding: 20px 10px 10px;
+    animation: fadeIn 0.4s ease;
+}
+
+.lista-aulas li {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.lista-aulas label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #4a5568;
+}
+
+/* Checkbox estilizado */
+.check-aula {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--cor-destaque);
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   CONTATO (GRID E FORMULÁRIO)
+========================================== */
+.contato-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+/* Desktop - divide em duas colunas */
+@media (min-width: 768px) {
+    .contato-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.info-contato li {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.info-contato a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.info-contato a:hover {
+    color: var(--cor-destaque);
+}
+
+.formulario-contato form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formulario-contato label {
+    font-weight: 600;
+    color: var(--cor-primaria);
+}
+
+.formulario-contato input,
+.formulario-contato textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.formulario-contato input:focus,
+.formulario-contato textarea:focus {
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+    outline: none;
+}
+
+.formulario-contato button {
+    background: var(--cor-destaque);
+    color: var(--cor-branco);
+    border: none;
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.formulario-contato button:hover {
+    background: var(--cor-destaque-hover);
+    transform: translateY(-2px);
+}
+
+.mapa-localizacao {
+    margin-top: 50px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--sombra-card);
+}
+
+/* ==========================================
+   RODAPÉ (FOOTER)
+========================================== */
+footer {
+    background: var(--cor-primaria);
+    color: var(--cor-branco);
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+}
+
+.logo-footer {
+    width: 120px;
+    margin-bottom: 15px;
+    opacity: 0.8;
+    transition: opacity 0.4s;
+}
+
+.logo-footer:hover {
+    opacity: 1;
 }
